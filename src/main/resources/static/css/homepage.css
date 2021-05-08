@@ -1,0 +1,105 @@
+.row{
+    display: flex;
+    justify-content: space-between;
+}
+.imagecenter{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.introduce{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
+
+}
+.introduce .gioithieu{
+    border-left: 15px;
+    width: 50%;
+}
+.introduce .image1{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.product{
+    margin: 10px;
+}
+.product h1{
+    text-align: center; 
+    font-weight: 600; 
+    border-bottom: 2px solid #f27922;
+    margin-bottom: 0;
+}
+.product hr{
+    height:1px;
+    border:none;
+    color:#333;
+    background-color:#333;
+    margin: 0 0 0 10px;
+}
+.contenmodel{
+    width: 80%;
+    position: relative;
+    left: 126px;
+}
+.cards{
+    
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 10px;
+    background-color: beige;
+    
+}
+.cards .card{
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+    box-shadow: black;
+    border-radius: 5px;
+    /* border: 2px solid #333; */
+    
+}
+.cards .card .nameCard{
+    padding: 10px;
+}
+.cards .card .infoCard{
+    margin-left: 10px;
+    animation: slideLeft 0.5s ease-in-out forwards;
+}
+@keyframes slideLeft
+{
+    0%{
+        transform: translateX(150px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@media (max-width:768px){
+    .introduce{
+        display: inline;
+    }
+    .introduce .image1{
+        width: 100%;
+    }
+    .introduce .gioithieu{
+        width: 100%;
+        padding: 20px;
+    }
+    .contenmodel{
+        width: 100%;
+        left: 0;
+        display: flex;
+        justify-content: center;
+    }
+    .cards{
+        display: inline-grid;
+        grid-template-columns: auto; 
+    }
+}
