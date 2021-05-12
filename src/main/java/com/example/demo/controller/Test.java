@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dao.*;
+import com.example.demo.module.Car;
 import com.example.demo.module.CarItem;
 import com.example.demo.module.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +44,9 @@ public class Test {
             }
         }
 
+    }
+    @RequestMapping("/test123")
+    public List<Car> test123(){
+        return carDao.findAll();
     }
 }

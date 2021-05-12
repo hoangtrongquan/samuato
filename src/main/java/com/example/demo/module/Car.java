@@ -2,12 +2,7 @@ package com.example.demo.module;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
 public class Car {
@@ -15,7 +10,7 @@ public class Car {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int id;
 	String name;
-	@OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "car", cascade = CascadeType.ALL)
 	List<CarItem> carItems;
 
 	public int getId() {
