@@ -1,0 +1,51 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: quan-app
+    env_file:
+      - .env.local
+    networks:
+      - dev-network
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "10m"
+
+  db:
+    image: mysql:8
+    container_name: quan-mysql
+    # restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    env_file:
+      - .env.local
+    volumes:
+      - quan-app-deploy-volume:/var/lib/mysql
+      - ${PWD}:/dev1
+    env_file:
+      - .env.local
+    networks:
+      - dev-network
+    ports:
+      - 3306:3306
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "10m"
+
+volumes:
+  quan-app-deploy-volume:
+    driver: local
+
+networks:
+  dev-network:
+    driver: bridge
