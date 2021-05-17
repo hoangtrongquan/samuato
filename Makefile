@@ -5,3 +5,7 @@ deploy-local:
 .PHONY: build
 build:
 	mvn clean package -Dmaven.test.skip=true
+
+.PHONY: dev-db
+dev-db:
+	docker-compose -f docker-compose.yml --env-file .env.local up --build -d db
