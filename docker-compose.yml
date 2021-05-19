@@ -12,6 +12,8 @@ services:
       - dev-network
     ports:
       - 8080:8080
+    volumes:
+      - ${PWD}/src:/myapp/src
     depends_on:
       - db
     logging:
