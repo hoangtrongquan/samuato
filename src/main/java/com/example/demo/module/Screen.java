@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.FetchType;
 
 @Entity
 public class Screen {
@@ -17,9 +18,10 @@ public class Screen {
 	String img;
 	String infoScreen;
 	String discription;
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
+
 	List<Product> products;
-	
+
 	public int getId() {
 		return id;
 	}
@@ -29,7 +31,7 @@ public class Screen {
 	public String getName() {
 		return name;
 	}
-	
+
 	public String getInfoScreen() {
 		return infoScreen;
 	}
@@ -63,5 +65,5 @@ public class Screen {
 				+ discription + ", products=" + products + "]";
 	}
 
-	
+
 }
