@@ -24,7 +24,7 @@ public class Product {
 	@ManyToOne
 	@JoinColumn(name = "car_item_id")
 	CarItem carItem;
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	List<Guarantee> guarantee;
 	@OneToOne
 	ProductDetail productDetail;
