@@ -10,4 +10,5 @@ COPY . .
 
 RUN mvn package -Dmaven.test.skip=true
 
-ENTRYPOINT tail -f /dev/null
+ENTRYPOINT java -jar target/android-1.0.war
+
