@@ -17,7 +17,7 @@ public class Screen {
 	String img;
 	String infoScreen;
 	String discription;
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	List<Product> products;
 	
 	public int getId() {
